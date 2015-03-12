@@ -33,7 +33,7 @@ public class Slot {
 		this.server = server;
 	}
 
-	protected void setUnavailable(boolean unavailable) {
+	public void setUnavailable(boolean unavailable) {
 		this.unavailable = unavailable;
 	}
 
