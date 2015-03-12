@@ -64,9 +64,8 @@ public class Server implements Comparable
 	public String toString()
 	{
 		String str = "Server " + id;
-		str += "\n";
-		str += "\tSize: " + this.getSize();
-		str += "\tCapacity: " + this.getCapacity();
+		str += " Size: " + this.getSize();
+		str += " Capacity: " + this.getCapacity();
 		return str;
 	}
 
@@ -83,6 +82,6 @@ public class Server implements Comparable
 	public int compareTo(Object o)
 	{
 		Server object = (Server) o;
-		return this.getCapacity() - object.getCapacity();
+		return object.getCapacity() - this.getCapacity();
 	}
 }

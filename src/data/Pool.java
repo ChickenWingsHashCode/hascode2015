@@ -46,8 +46,20 @@ public class Pool
 		this.servers.remove(server);
 	}
 	
+	public int totalCapacity()
+	{
+		int res = 0;
+		for (Server s : this.getServers())
+		{
+			res += s.getCapacity();
+		}
+		return res;
+	}
+	
 	public String toString()
 	{
-		return "Pool: " + this.getServers();
+		String str = "Pool:\n" + this.getServers();
+		str += "\nCapacity = " + this.totalCapacity();
+		return str;
 	}
 }

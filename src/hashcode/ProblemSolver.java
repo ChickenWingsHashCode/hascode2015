@@ -2,7 +2,6 @@ package hashcode;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -95,28 +94,37 @@ public class ProblemSolver
 		List<Server> s = new ArrayList<Server>();
 		s.addAll(this.getServers());
 		Collections.sort(s);
-		
+
 		Pool[] p = this.getPools();
 		int i = 0;
-		boolean pos = true;
-		for (Server ser: s)
+		boolean direction = true;
+		for (Server ser : s)
 		{
 			p[i].addServer(ser);
-			if (pos && i < p.length)
+			if (direction && i < p.length-1)
 				i++;
-			else if (pos && i >= p.length)
-				pos = false;
-			else if (!pos && i >= 1)
+			else if (direction && i >= p.length-1)
+				direction = false;
+			else if (!direction && i >= 1)
 				i--;
-			else if (!pos &&i < 1)
-				pos = true;
+			else if (!direction && i < 1)
+				direction = true;
 			else
 				throw new Exception();
 		}
-		
-		for (int j = 0; j < p.length; i++)
+
+		int max = p[0].totalCapacity();
+		int min = p[0].totalCapacity();
+		for (int j = 0; j < p.length; j++)
 		{
 			System.out.println(p[j]);
+			if (p[i].totalCapacity() > max)
+				max = p[i].totalCapacity();
+			if (p[i].totalCapacity() < min)
+				min = p[i].totalCapacity();
 		}
+
+		System.out.println("Min: " + min);
+		System.out.println("Max = " + max);
 	}
 }
