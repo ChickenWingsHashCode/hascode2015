@@ -48,8 +48,8 @@ public class Row
 	
 	protected void setSlots(Slot[] slots)
 	{
-		if (slots.length < 1 || slots.length > 10000)
-			throw new IllegalArgumentException("Number of slots must be contains between 0 and 10000");
+		if (slots.length < 1 || slots.length > 1000)
+			throw new IllegalArgumentException("Number of slots must be contains between 0 and 1000");
 		
 		this.slots = slots;
 	}
