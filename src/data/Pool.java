@@ -45,4 +45,9 @@ public class Pool
 	{
 		this.servers.remove(server);
 	}
+	
+	public String toString()
+	{
+		return "Pool: " + this.getServers();
+	}
 }

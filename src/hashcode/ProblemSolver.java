@@ -1,5 +1,9 @@
 package hashcode;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import data.*;
@@ -80,4 +84,39 @@ public class ProblemSolver
 		this.servers = servers;
 	}
 
+	/**
+	 * Create the potential ideal pools
+	 * 
+	 * @throws Exception
+	 */
+	@SuppressWarnings("unchecked")
+	public void initPools() throws Exception
+	{
+		List<Server> s = new ArrayList<Server>();
+		s.addAll(this.getServers());
+		Collections.sort(s);
+		
+		Pool[] p = this.getPools();
+		int i = 0;
+		boolean pos = true;
+		for (Server ser: s)
+		{
+			p[i].addServer(ser);
+			if (pos && i < p.length)
+				i++;
+			else if (pos && i >= p.length)
+				pos = false;
+			else if (!pos && i >= 1)
+				i--;
+			else if (!pos &&i < 1)
+				pos = true;
+			else
+				throw new Exception();
+		}
+		
+		for (int j = 0; j < p.length; i++)
+		{
+			System.out.println(p[j]);
+		}
+	}
 }
