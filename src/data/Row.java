@@ -32,6 +32,10 @@ public class Row
 	public Row(int size)
 	{
 		Slot[] s = new Slot[size];
+		for (int i = 0; i < size; i++)
+		{
+			s[i] = new Slot(false);
+		}
 		this.setSlots(s);
 		this.countUnavailable();
 	}
