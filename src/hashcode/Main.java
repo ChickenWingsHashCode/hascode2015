@@ -7,7 +7,8 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		final InputReader reader = new InputReader();
-		reader.readFromFile("dc.in", new IdGenerator());
+		final ProblemSolver solver = reader.readFromFile("dc.in", new IdGenerator());
+		solver.initPools();
 	}
 
 }
