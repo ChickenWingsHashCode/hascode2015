@@ -34,15 +34,7 @@ public class InputReader {
 				.nextToken());
 		final int nbGroups = Integer.parseInt(tokenizer.nextToken());
 		final int nbServers = Integer.parseInt(tokenizer.nextToken());
-		System.out.println("Nombre de rangées : " + nbRows);
-		System.out.println("Nombre d'emplacements par rangée : "
-				+ nbSlotsPerRow);
-		System.out.println("Nombre d'emplacements indisponibles : "
-				+ nbUnavailableSlots);
-		System.out.println("Nombre de groupes : " + nbGroups);
-		System.out.println("Nombre de serveurs à allouer : " + nbServers);
 		// unavailable locations
-		System.out.println("Emplacements indisponibles :");
 		for (int i = 0; i < nbUnavailableSlots; i++) {
 			currentLine = reader.readLine();
 			tokenizer = new StringTokenizer(currentLine, SEPARATOR);
@@ -52,7 +44,6 @@ public class InputReader {
 			concernedRow.getSlots()[y].setUnavailable(true);
 		}
 		// servers
-		System.out.println("Serveurs :");
 		final Set<Server> servers = new HashSet<Server>();
 		for (int i = 0; i < nbServers; i++) {
 			currentLine = reader.readLine();
@@ -61,7 +52,6 @@ public class InputReader {
 			final int capacity = Integer.parseInt(tokenizer.nextToken());
 			final Server server = new Server(idGenerator.getNextId(), size,
 					capacity);
-			System.out.println(server);
 			servers.add(server);
 		}
 		final Pool[] pools = new Pool[nbGroups];
