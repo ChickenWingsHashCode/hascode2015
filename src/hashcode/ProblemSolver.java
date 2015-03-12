@@ -1,11 +1,16 @@
 package hashcode;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 import java.util.Set;
 
-import data.*;
+import data.DataCenter;
+import data.Pool;
+import data.Row;
+import data.Server;
 
 /**
  * Class to solve the problem of optimization of capacity for a data center
@@ -126,5 +131,31 @@ public class ProblemSolver
 
 		System.out.println("Min: " + min);
 		System.out.println("Max = " + max);
+	}
+	
+	public void range(Server server, Pool currentPool) {
+		boolean isRange = false;
+		int i = 0;
+		Bloc b = null;
+		while (!isRange && i < rows.length) {
+			if ((b = rows[i].dispo(server)) != null) {
+				rows[i].addServer(server, b);
+				isRange = true;
+			}
+		}
+		currentPool.removeServer(server);
+	}
+	
+	public static void main(String[] args) throws IOException {
+		final InputReader reader = new InputReader();
+		final ProblemSolver solver = reader.readFromFile("input.txt", new IdGenerator());
+		int currentPoolIndex = -1;
+		boolean possible = true;
+		final Pool[] pools = solver.getPools();
+		while (possible) {
+			final Pool currentPool = pools[(currentPoolIndex++ % pools.length)];
+			final Server currentServer = currentPool.getFirstServer();
+			solver.range(currentServer, currentPool);
+		}
 	}
 }

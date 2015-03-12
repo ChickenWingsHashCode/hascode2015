@@ -7,8 +7,7 @@ package data;
  * @author leo
  *
  */
-public class Server implements Comparable
-{
+public class Server implements Comparable {
 	/**
 	 * The id of the server
 	 */
@@ -24,63 +23,55 @@ public class Server implements Comparable
 	 */
 	protected int capacity;
 
-	public Server(int id, int size, int capacity)
-	{
+	public Server(int id, int size, int capacity) {
 		this.setID(id);
 		this.setSize(size);
 		this.setCapacity(capacity);
 	}
 
-	public int getID()
-	{
+	public int getID() {
 		return this.id;
 	}
 
-	public void setID(int id)
-	{
+	public void setID(int id) {
 		this.id = id;
 	}
 
-	public int getSize()
-	{
+	public int getSize() {
 		return this.size;
 	}
 
-	public void setSize(int size)
-	{
+	public void setSize(int size) {
 		this.size = size;
 	}
 
-	public int getCapacity()
-	{
+	public int getCapacity() {
 		return this.capacity;
 	}
 
-	public void setCapacity(int capacity)
-	{
+	public void setCapacity(int capacity) {
 		this.capacity = capacity;
 	}
 
-	public String toString()
-	{
+	public String toString() {
 		String str = "Server " + id;
 		str += " Size: " + this.getSize();
 		str += " Capacity: " + this.getCapacity();
 		return str;
 	}
 
-	public boolean equals(Object o)
-	{
-		if (o instanceof Server) return false;
+	public boolean equals(Object o) {
+		if (o instanceof Server)
+			return false;
 
-		if (((Server) o).getID() == this.getID()) return true;
+		if (((Server) o).getID() == this.getID())
+			return true;
 
 		return false;
 	}
 
 	@Override
-	public int compareTo(Object o)
-	{
+	public int compareTo(Object o) {
 		Server object = (Server) o;
 		return object.getCapacity() - this.getCapacity();
 	}

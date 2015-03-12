@@ -56,6 +56,10 @@ public class Pool
 		return res;
 	}
 	
+	public Server getFirstServer() {
+		return servers.iterator().next();
+	}
+	
 	public String toString()
 	{
 		String str = "Pool:\n" + this.getServers();
