@@ -19,12 +19,10 @@ public class DataCenter
 	 */
 	protected Pool[] pools;
 	
-	public DataCenter(int nrows, int npools)
+	public DataCenter(Row[] rows, Pool[] pools)
 	{
-		Row[] r = new Row[nrows];
-		Pool[] p = new Pool[npools];
-		this.setRows(r);
-		this.setPools(p);
+		this.setRows(rows);
+		this.setPools(pools);
 	}
 	
 	public Row[] getRows()
