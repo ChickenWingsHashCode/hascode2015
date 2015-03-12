@@ -23,9 +23,6 @@ public class Slot {
 	}
 
 	public Server getServer() {
-		if (this.server == null)
-			throw new IllegalStateException("The slot is empty");
-
 		return this.server;
 	}
 

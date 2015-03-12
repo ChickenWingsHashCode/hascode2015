@@ -9,7 +9,7 @@ import java.util.Set;
  * @author leo
  *
  */
-public class Pool
+public class Pool implements Comparable
 {
 	/**
 	 * The servers of the pool
@@ -45,7 +45,7 @@ public class Pool
 	{
 		this.servers.remove(server);
 	}
-	
+
 	public int totalCapacity()
 	{
 		int res = 0;
@@ -55,11 +55,18 @@ public class Pool
 		}
 		return res;
 	}
-	
+
 	public String toString()
 	{
 		String str = "Pool:\n" + this.getServers();
 		str += "\nCapacity = " + this.totalCapacity();
 		return str;
+	}
+
+	@Override
+	public int compareTo(Object arg0)
+	{
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
