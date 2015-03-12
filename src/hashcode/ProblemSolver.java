@@ -4,13 +4,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 import java.util.Set;
 
 import data.DataCenter;
 import data.Pool;
 import data.Row;
 import data.Server;
+import data.utils.Bloc;
 
 /**
  * Class to solve the problem of optimization of capacity for a data center
@@ -138,7 +138,7 @@ public class ProblemSolver
 		int i = 0;
 		Bloc b = null;
 		while (!isRange && i < rows.length) {
-			if ((b = rows[i].dispo(server)) != null) {
+			if ((b = rows[i].availableBloc(server)) != null) {
 				rows[i].addServer(server, b);
 				isRange = true;
 			}

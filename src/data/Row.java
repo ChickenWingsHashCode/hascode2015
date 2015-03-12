@@ -124,4 +124,15 @@ public class Row
 		if (bloc.getSize() <= 0)
 			this.blocs.remove(bloc);
 	}
+	
+	public Bloc availableBloc(Server server)
+	{
+		for (Bloc bloc : this.blocs)
+		{
+			if (server.getSize() <= bloc.getSize())
+				return bloc;
+		}
+		
+		return null;
+	}
 }
