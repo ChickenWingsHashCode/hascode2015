@@ -6,47 +6,41 @@ package data;
  * @author leo
  *
  */
-public class Slot
-{
+public class Slot {
 	/**
 	 * The server on the spot if it exists
 	 */
 	protected Server server;
 
 	/**
-	 * If a server is unavailable
+	 * If a slot is unavailable
 	 */
 	protected boolean unavailable;
 
-	public Slot(boolean unvailable)
-	{
+	public Slot(boolean unvailable) {
 		this.setServer(null);
 		this.setUnavailable(unvailable);
 	}
 
-	public Server getServer()
-	{
+	public Server getServer() {
 		if (this.server == null)
 			throw new IllegalStateException("The slot is empty");
 
 		return this.server;
 	}
 
-	public void setServer(Server server)
-	{
+	public void setServer(Server server) {
 		this.server = server;
 	}
 
-	protected void setUnavailable(boolean unavailable)
-	{
+	protected void setUnavailable(boolean unavailable) {
 		this.unavailable = unavailable;
 	}
 
 	/**
 	 * @return true if the server is unavailable
 	 */
-	public boolean isUnaivalable()
-	{
+	public boolean isUnaivalable() {
 		return this.unavailable;
 	}
 
